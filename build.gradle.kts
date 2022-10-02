@@ -16,12 +16,23 @@ repositories {
     mavenCentral()
 }
 
+dependencyManagement {
+    imports {
+        mavenBom("org.springframework.cloud:spring-cloud-dependencies:2021.0.3")
+    }
+}
+
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+    implementation("io.springfox:springfox-boot-starter:3.0.0")
+    implementation("org.springframework.boot:spring-boot-starter-security")
+    implementation("mysql:mysql-connector-java")
+    implementation("io.github.microutils", "kotlin-logging-jvm", "2.1.23")
+    implementation("org.springframework.cloud:spring-cloud-starter-sleuth")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 
