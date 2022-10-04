@@ -1,0 +1,6 @@
+package kr.smartdoctor.api.autoreceipt.application.errorhandling.exception
+
+import kr.smartdoctor.api.autoreceipt.application.errorhandling.exception.base.ExceptionReason
+import kr.smartdoctor.api.autoreceipt.application.errorhandling.exception.base.ResponseStatusReasonException
+
+class PasswordIncorrectException : ResponseStatusReasonException(ExceptionReason.PASSWORD_INCORRECT)

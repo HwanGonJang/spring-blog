@@ -1,15 +1,15 @@
 package com.example.yourssuassignment.domain.user.entity
 
-import java.time.Instant
 import java.time.LocalDateTime
 import javax.persistence.*
 
 @Entity
 @Table(name = "user")
-class User (
+class User(
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id", nullable = false)
-    val id: Int,
+    val id: Long,
 
     @Column(name = "created_at", nullable = false)
     val createdAt: LocalDateTime,

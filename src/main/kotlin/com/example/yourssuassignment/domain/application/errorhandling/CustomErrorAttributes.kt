@@ -1,17 +1,17 @@
-package kr.smartdoctor.api.autoreceipt.application.errorhandling
+package com.example.yourssuassignment.domain.application.errorhandling
 
-import org.springframework.cloud.sleuth.Tracer
 import kr.smartdoctor.api.autoreceipt.application.errorhandling.exception.base.ResponseStatusReasonException
 import mu.KotlinLogging
 import org.springframework.boot.web.error.ErrorAttributeOptions
 import org.springframework.boot.web.servlet.error.DefaultErrorAttributes
+import org.springframework.cloud.sleuth.Tracer
 import org.springframework.stereotype.Component
 import org.springframework.web.context.request.WebRequest
 
 @Component
 class CustomErrorAttributes(
     private val tracer: Tracer,
-): DefaultErrorAttributes() {
+) : DefaultErrorAttributes() {
     private val logger = KotlinLogging.logger {}
 
     override fun getErrorAttributes(

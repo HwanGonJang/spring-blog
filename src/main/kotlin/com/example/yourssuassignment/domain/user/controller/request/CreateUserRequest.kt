@@ -1,16 +1,19 @@
 package com.example.yourssuassignment.domain.user.controller.request
 
 import io.swagger.v3.oas.annotations.media.Schema
-import java.time.LocalDateTime
+import javax.validation.constraints.Email
+import javax.validation.constraints.Size
 
 @Schema(name = "고객 등록 API Request Body")
 data class CreateUserRequest(
     @Schema(
         description = """[필수] 고객의 이메일입니다. <br />""",
     )
+    @field:Email
     val email: String,
 
     @Schema(description = "[필수] 고객의 비밀번호입니다.")
+    @field:Size(min = 6, max = 13, message = "잘못된 입력입니다.")
     val password: String,
 
     @Schema(
