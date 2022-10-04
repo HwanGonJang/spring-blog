@@ -1,19 +1,18 @@
 package com.example.yourssuassignment.domain.user.controller
 
 import com.example.yourssuassignment.domain.user.controller.request.CreateUserRequest
-import com.example.yourssuassignment.domain.user.controller.response.CreateUserResponse
 import com.example.yourssuassignment.domain.user.facade.UserFacade
 import com.example.yourssuassignment.dto.UserDto
 import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.media.Content
 import io.swagger.v3.oas.annotations.media.Schema
 import io.swagger.v3.oas.annotations.responses.ApiResponse
-import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
+import javax.validation.Valid
 
 @RestController
 @RequestMapping("/users")
@@ -37,6 +36,7 @@ class UserController(
     @PostMapping
     fun createUser(
         @RequestBody
+        @Valid
         createUserRequest: CreateUserRequest,
     ): UserDto {
         val encoder: BCryptPasswordEncoder = BCryptPasswordEncoder()
