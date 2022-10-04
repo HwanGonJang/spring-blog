@@ -12,7 +12,7 @@ CREATE TABLE user
 
 CREATE TABLE article
 (
-	article_id  BIGINT NOT NULL,
+	article_id  BIGINT NOT NULL AUTO_INCREMENT,
 	created_at  DATETIME NOT NULL,
 	updated_at  DATETIME NOT NULL,
 	content     VARCHAR(255) NOT NULL,
@@ -27,7 +27,7 @@ CREATE TABLE article
 
 CREATE TABLE comment
 (
-	comment_id  BIGINT NOT NULL,
+	comment_id  BIGINT NOT NULL AUTO_INCREMENT,
 	created_at  DATETIME NOT NULL,
 	updated_at  DATETIME NOT NULL,
 	content     VARCHAR(255) NOT NULL,
