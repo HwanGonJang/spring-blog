@@ -1,28 +1,45 @@
 package com.example.yourssuassignment.domain.user.facade
 
-import com.example.yourssuassignment.domain.user.service.ArticleService
+import com.example.yourssuassignment.common.util.PasswordEncryptionUtil
 import com.example.yourssuassignment.domain.user.service.UserService
 import com.example.yourssuassignment.dto.UserDto
 import org.springframework.stereotype.Service
+import javax.transaction.Transactional
 
 @Service
 class UserFacade(
     private val userService: UserService,
 ) {
+    @Transactional
     fun createUser(
         email: String,
         password: String,
         username: String,
-    ): UserDto {
-        val user = userService.createUser(
+    ): UserDto = userService.createUser(
+        email = email,
+        password = password,
+        username = username,
+    ).let {
+        UserDto(
+            email = it.email,
+            username = it.username,
+        )
+    }
+
+    @Transactional
+    fun deleteUser(
+        email: String,
+        password: String,
+    ) {
+        val user = userService.getByEmail(
             email = email,
-            password = password,
-            username = username,
         )
 
-        return UserDto(
-            email = user.email,
-            username = user.username,
+        PasswordEncryptionUtil.isEqualToEncryptedPassword(
+            password = password,
+            encryptedPassword = user.password,
         )
+
+        userService.delete(user)
     }
 }

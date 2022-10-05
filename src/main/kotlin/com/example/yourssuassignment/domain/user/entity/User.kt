@@ -1,6 +1,6 @@
 package com.example.yourssuassignment.domain.user.entity
 
-import java.time.LocalDateTime
+import com.example.yourssuassignment.common.entity.BaseTimeEntity
 import javax.persistence.*
 
 @Entity
@@ -11,12 +11,6 @@ class User(
     @Column(name = "user_id", nullable = false)
     val id: Long,
 
-    @Column(name = "created_at", nullable = false)
-    val createdAt: LocalDateTime,
-
-    @Column(name = "updated_at", nullable = false)
-    val updatedAt: LocalDateTime,
-
     @Column(name = "email", nullable = false)
     val email: String,
 
@@ -25,4 +19,4 @@ class User(
 
     @Column(name = "username", nullable = false)
     val username: String,
-)
+) : BaseTimeEntity()

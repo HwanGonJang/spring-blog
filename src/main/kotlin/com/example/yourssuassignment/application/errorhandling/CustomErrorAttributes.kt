@@ -1,4 +1,4 @@
-package com.example.yourssuassignment.domain.application.errorhandling
+package com.example.yourssuassignment.application.errorhandling
 
 import kr.smartdoctor.api.autoreceipt.application.errorhandling.exception.base.ResponseStatusReasonException
 import mu.KotlinLogging

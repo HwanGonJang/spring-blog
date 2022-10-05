@@ -1,25 +1,27 @@
-package com.example.yourssuassignment.domain.user.facade
+package com.example.yourssuassignment.domain.comment.facade
 
+import com.example.yourssuassignment.application.errorhandling.exception.DeleteUnauthorizedException
 import com.example.yourssuassignment.application.errorhandling.exception.UpdateUnauthorizedException
 import com.example.yourssuassignment.common.util.PasswordEncryptionUtil
+import com.example.yourssuassignment.domain.comment.service.CommentService
 import com.example.yourssuassignment.domain.user.service.ArticleService
 import com.example.yourssuassignment.domain.user.service.UserService
-import com.example.yourssuassignment.dto.ArticleDto
+import com.example.yourssuassignment.dto.CommentDto
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 
 @Service
-class ArticleFacade(
+class CommentFacade(
     private val userService: UserService,
     private val articleService: ArticleService,
+    private val commentService: CommentService,
 ) {
-    @Transactional
-    fun createArticle(
+    fun createComment(
+        articleId: Long,
         email: String,
         password: String,
-        title: String,
         content: String,
-    ): ArticleDto {
+    ): CommentDto {
         val user = userService.getByEmail(
             email = email,
         )
@@ -29,30 +31,29 @@ class ArticleFacade(
             encryptedPassword = user.password,
         )
 
-        return articleService.createArticle(
-            email = email,
-            password = password,
-            title = title,
-            content = content,
+        val article = articleService.getById(articleId)
+
+        return commentService.createComment(
             user = user,
+            article = article,
+            content = content,
         ).let {
-            ArticleDto(
-                articleId = it.id,
+            CommentDto(
+                commentId = it.id,
                 email = it.user.email,
-                title = it.title,
-                content = it.title,
+                content = it.content,
             )
         }
     }
 
     @Transactional
-    fun updateArticle(
+    fun updateComment(
         articleId: Long,
+        commentId: Long,
         email: String,
         password: String,
-        title: String,
         content: String,
-    ): ArticleDto {
+    ): CommentDto {
         val user = userService.getByEmail(
             email = email,
         )
@@ -62,28 +63,29 @@ class ArticleFacade(
             encryptedPassword = user.password,
         )
 
-        val article = articleService.getById(
+        val comment = commentService.getByArticleIdAndCommentId(
+            commentId = commentId,
             articleId = articleId,
         )
 
-        if (article.user.id != user.id) throw UpdateUnauthorizedException()
+        if (comment.user.id != user.id) throw UpdateUnauthorizedException()
 
-        article.content = content
+        comment.content = content
 
-        return articleService.save(article)
+        return commentService.save(comment)
             .let {
-                ArticleDto(
-                    articleId = it.id,
+                CommentDto(
+                    commentId = it.id,
                     email = it.user.email,
-                    title = it.title,
-                    content = it.title,
+                    content = it.content,
                 )
             }
     }
 
     @Transactional
-    fun deleteArticle(
+    fun deleteComment(
         articleId: Long,
+        commentId: Long,
         email: String,
         password: String,
     ) {
@@ -96,12 +98,13 @@ class ArticleFacade(
             encryptedPassword = user.password,
         )
 
-        val article = articleService.getById(
+        val comment = commentService.getByArticleIdAndCommentId(
             articleId = articleId,
+            commentId = commentId,
         )
 
-        if (article.user.id != user.id) throw UpdateUnauthorizedException()
+        if (comment.user.id != user.id) throw DeleteUnauthorizedException()
 
-        articleService.delete(article)
+        commentService.delete(comment)
     }
 }
