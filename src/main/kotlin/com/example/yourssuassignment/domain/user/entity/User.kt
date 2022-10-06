@@ -4,7 +4,7 @@ import com.example.yourssuassignment.common.entity.BaseTimeEntity
 import javax.persistence.*
 
 @Entity
-@Table(name = "user")
+@Table(name = "users")
 class User(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -1,4 +1,4 @@
-package com.example.yourssuassignment.domain.user.facade
+package com.example.yourssuassignment.domain.article.facade
 
 import com.example.yourssuassignment.application.errorhandling.exception.UpdateUnauthorizedException
 import com.example.yourssuassignment.common.util.PasswordEncryptionUtil
@@ -68,6 +68,7 @@ class ArticleFacade(
 
         if (article.user.id != user.id) throw UpdateUnauthorizedException()
 
+        article.title = title
         article.content = content
 
         return articleService.save(article)
@@ -76,7 +77,7 @@ class ArticleFacade(
                     articleId = it.id,
                     email = it.user.email,
                     title = it.title,
-                    content = it.title,
+                    content = it.content,
                 )
             }
     }

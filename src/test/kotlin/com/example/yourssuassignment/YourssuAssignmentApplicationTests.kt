@@ -8,6 +8,7 @@ class YourssuAssignmentApplicationTests {
 
     @Test
     fun contextLoads() {
+        //우왕
     }
 
 }

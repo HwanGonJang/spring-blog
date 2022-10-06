@@ -1,8 +1,8 @@
 package com.example.yourssuassignment.domain.user.controller
 
+import com.example.yourssuassignment.domain.article.facade.ArticleFacade
 import com.example.yourssuassignment.domain.comment.controller.request.DeleteCommentRequest
 import com.example.yourssuassignment.domain.user.controller.request.CreateArticleRequest
-import com.example.yourssuassignment.domain.user.facade.ArticleFacade
 import com.example.yourssuassignment.dto.ArticleDto
 import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.Parameter

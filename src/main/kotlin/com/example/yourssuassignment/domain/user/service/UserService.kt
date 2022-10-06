@@ -24,21 +24,20 @@ class UserService(
         password: String,
         username: String,
     ): User {
-        val isUser = userRepository.findByEmailAndUsername(
+        val user = userRepository.findByEmail(
             email = email,
-            username = username,
         )
 
-        if (isUser != null) throw UserAlreadyExistException()
+        if (user != null) throw UserAlreadyExistException()
 
-        val user = User(
+        val userToSave = User(
             id = 0,
             email = email,
             password = PasswordEncryptionUtil.encrypt(password),
             username = username,
         )
 
-        return userRepository.save(user)
+        return userRepository.save(userToSave)
     }
 
     @Transactional

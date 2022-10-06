@@ -34,7 +34,16 @@ dependencies {
     implementation("mysql:mysql-connector-java")
     implementation("io.github.microutils", "kotlin-logging-jvm", "2.1.23")
     implementation("org.springframework.cloud:spring-cloud-starter-sleuth")
+
     testImplementation("org.springframework.boot:spring-boot-starter-test")
+    testImplementation("org.springframework.security:spring-security-test")
+    testImplementation("io.kotest:kotest-runner-junit5:5.4.2")
+    testImplementation("io.kotest:kotest-assertions-core:5.4.2")
+    testImplementation("io.kotest:kotest-property:5.4.2")
+    testImplementation("io.kotest.extensions", "kotest-extensions-spring", "1.1.2")
+    testImplementation("io.kotest.extensions", "kotest-property-arbs", "2.1.2")
+    testImplementation("io.mockk", "mockk", "1.12.7")
+    testRuntimeOnly("com.h2database:h2")
 }
 
 tasks.withType<KotlinCompile> {
