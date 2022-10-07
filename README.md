@@ -20,8 +20,8 @@
 * JUnit5
 * H2 Database(in-memory DB)
 ## DB 설정하기
-프로젝트 경로에서 다음 명령어를 입력하여 DB 컨테이너를 실행합니다.(도커 설치 필수)
-`docker-compose up -d`
+프로젝트 경로에서 다음 명령어를 입력하여 DB 컨테이너를 실행합니다.(도커 설치 필수)  
+`docker-compose up -d`  
 테이블 DDL은 table.sql에서 user, password, db name 등은 docker-compose.yml 에서 수정할 수 있습니다.
 ![image](https://user-images.githubusercontent.com/33739448/194445880-38499283-b914-44a7-b953-c5cae390d5ba.png)
 
