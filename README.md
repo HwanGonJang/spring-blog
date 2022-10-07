@@ -1,4 +1,5 @@
 # 블로그 만들기(유어슈 백엔드 팀 과제)
+<img src="https://img.shields.io/badge/Spring Boot-6DB33F?style=for-the-badge&logo=Spring Boot&logoColor=white"> <img src="https://img.shields.io/badge/Kotlin-7F52FF?style=for-the-badge&logo=Kotlin&logoColor=white">
 ## 개요
 스프링 부트, 코틀린, MySQL을 이용하여 간단한 블로그 API를 작성합니다.
 ## 사용한 스택
@@ -11,6 +12,7 @@
 * Spring JPA
 * Spring Security
 * Swagger
+    * http://localhost:8070/swagger-ui/
 * Kotlin Logging
 * Validation
 * 그 외 스타터 라이브러리
@@ -26,7 +28,8 @@
 ![image](https://user-images.githubusercontent.com/33739448/194445880-38499283-b914-44a7-b953-c5cae390d5ba.png)
 
 위와 같이 도커 컨테이너가 정상적으로 실행되면 Datasource를 지정해 DB를 연결합니다.(IntelliJ 기준)
-![image](https://user-images.githubusercontent.com/33739448/194445803-69da21e6-71d2-4a99-879e-b2e946fa089c.png)
+![image](https://user-images.githubusercontent.com/33739448/194445803-69da21e6-71d2-4a99-879e-b2e946fa089c.png)  
+![image](https://user-images.githubusercontent.com/33739448/194451261-aa10f610-22eb-483f-b47f-be110fc922cc.png)
 
 JPA 사용을 위해 application.yml에서 datasource 설정을 해줍니다.
 ```
