@@ -59,7 +59,7 @@ datasource:
 * **이미 존재하는 회원일 때**
   ![image](https://user-images.githubusercontent.com/33739448/194446523-c84e4ad4-5f42-4cec-8a41-4111190e635c.png)
 #### User 회원탈퇴
-* **정상 동작**
+* **정상 동작**  
   ![image](https://user-images.githubusercontent.com/33739448/194446816-9a4c363e-b580-46fe-88a2-28290e7deead.png)
 * **고객이 존재하지 않을 때**
   ![image](https://user-images.githubusercontent.com/33739448/194446669-23ec661a-98fe-4621-b879-75380b3c627b.png)
