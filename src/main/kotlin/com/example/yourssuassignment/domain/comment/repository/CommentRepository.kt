@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository
 
 @Repository
 interface CommentRepository : JpaRepository<Comment, Long> {
+    // 댓글 조회
     fun findByIdAndArticleId(
         commentId: Long,
         articleId: Long,

@@ -16,6 +16,7 @@ class CommentFacade(
     private val articleService: ArticleService,
     private val commentService: CommentService,
 ) {
+    // 댓글 작성하기
     fun createComment(
         articleId: Long,
         email: String,
@@ -26,6 +27,7 @@ class CommentFacade(
             email = email,
         )
 
+        // 패스워드 검증
         PasswordEncryptionUtil.isEqualToEncryptedPassword(
             password = password,
             encryptedPassword = user.password,
@@ -46,6 +48,7 @@ class CommentFacade(
         }
     }
 
+    // 댓글 수정하기
     @Transactional
     fun updateComment(
         articleId: Long,
@@ -58,6 +61,7 @@ class CommentFacade(
             email = email,
         )
 
+        // 패스워드 검증
         PasswordEncryptionUtil.isEqualToEncryptedPassword(
             password = password,
             encryptedPassword = user.password,
@@ -68,6 +72,7 @@ class CommentFacade(
             articleId = articleId,
         )
 
+        // 수정 권한 검증
         if (comment.user.id != user.id) throw UpdateUnauthorizedException()
 
         comment.content = content
@@ -82,6 +87,7 @@ class CommentFacade(
             }
     }
 
+    // 댓글 삭제하기
     @Transactional
     fun deleteComment(
         articleId: Long,
@@ -93,6 +99,7 @@ class CommentFacade(
             email = email,
         )
 
+        // 패스워드 검증
         PasswordEncryptionUtil.isEqualToEncryptedPassword(
             password = password,
             encryptedPassword = user.password,
@@ -103,6 +110,7 @@ class CommentFacade(
             commentId = commentId,
         )
 
+        // 삭제 권한 검증
         if (comment.user.id != user.id) throw DeleteUnauthorizedException()
 
         commentService.delete(comment)

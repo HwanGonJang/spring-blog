@@ -1,5 +1,6 @@
 package com.example.yourssuassignment.domain.article.facade
 
+import com.example.yourssuassignment.application.errorhandling.exception.DeleteUnauthorizedException
 import com.example.yourssuassignment.application.errorhandling.exception.UpdateUnauthorizedException
 import com.example.yourssuassignment.common.util.PasswordEncryptionUtil
 import com.example.yourssuassignment.domain.user.service.ArticleService
@@ -24,6 +25,7 @@ class ArticleFacade(
             email = email,
         )
 
+        // 패스워드 검증
         PasswordEncryptionUtil.isEqualToEncryptedPassword(
             password = password,
             encryptedPassword = user.password,
@@ -35,7 +37,7 @@ class ArticleFacade(
             title = title,
             content = content,
             user = user,
-        ).let {
+        ).let {     // Article -> ArticleDto
             ArticleDto(
                 articleId = it.id,
                 email = it.user.email,
@@ -57,6 +59,7 @@ class ArticleFacade(
             email = email,
         )
 
+        // 패스워드 검증
         PasswordEncryptionUtil.isEqualToEncryptedPassword(
             password = password,
             encryptedPassword = user.password,
@@ -66,11 +69,13 @@ class ArticleFacade(
             articleId = articleId,
         )
 
+        // 유저 권한 검증
         if (article.user.id != user.id) throw UpdateUnauthorizedException()
 
         article.title = title
         article.content = content
 
+        // Aticle -> ArticleDto
         return articleService.save(article)
             .let {
                 ArticleDto(
@@ -92,6 +97,7 @@ class ArticleFacade(
             email = email,
         )
 
+        // 패스워드 검증
         PasswordEncryptionUtil.isEqualToEncryptedPassword(
             password = password,
             encryptedPassword = user.password,
@@ -101,7 +107,8 @@ class ArticleFacade(
             articleId = articleId,
         )
 
-        if (article.user.id != user.id) throw UpdateUnauthorizedException()
+        // 유저 권한 검증
+        if (article.user.id != user.id) throw DeleteUnauthorizedException()
 
         articleService.delete(article)
     }

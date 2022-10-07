@@ -1,3 +1,4 @@
+# in-memory 테스트 용 yml 파일
 spring:
   mvc:
     pathmatch:

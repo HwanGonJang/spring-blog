@@ -55,7 +55,7 @@ class UserController(
             ),
             ApiResponse(
                 responseCode = "406",
-                description = "비밀번호가 일치하지 않습니다. or 삭제할 권한이 없습니다.",
+                description = "비밀번호가 일치하지 않습니다.",
                 content = arrayOf(Content(schema = Schema(hidden = true))),
             ),
         ],

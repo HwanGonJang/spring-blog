@@ -3,6 +3,7 @@ package kr.smartdoctor.api.autoreceipt.application.errorhandling.exception.base
 import kr.smartdoctor.api.autoreceipt.dto.ExceptionReasonDto
 import org.springframework.http.HttpStatus
 
+// Exception enum class
 enum class ExceptionReason(val status: HttpStatus, val reason: String) {
     USER_ALREADY_EXIST(HttpStatus.CONFLICT, "이미 존재하는 고객입니다."),
     USER_NOT_FOUND(HttpStatus.NOT_FOUND, "존재하지 않는 고객입니다."),

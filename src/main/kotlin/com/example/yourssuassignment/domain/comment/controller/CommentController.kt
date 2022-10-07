@@ -26,7 +26,7 @@ class CommentController(
             ),
             ApiResponse(
                 responseCode = "404",
-                description = "해당하는 고객이 없습니다.",
+                description = "해당하는 정보가 없습니다.",
                 content = arrayOf(Content(schema = Schema(hidden = true))),
             ),
             ApiResponse(

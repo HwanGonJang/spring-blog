@@ -11,6 +11,7 @@ import javax.transaction.Transactional
 class ArticleService(
     private val articleRepository: ArticleRepository,
 ) {
+    // id로 Article 조회 -> null 이면 Exception
     fun getById(
         articleId: Long,
     ): Article = articleRepository.findById(articleId).orElseThrow { throw ArticleNotFoundException() }

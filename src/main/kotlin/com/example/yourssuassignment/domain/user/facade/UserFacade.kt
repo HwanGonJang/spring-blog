@@ -10,6 +10,7 @@ import javax.transaction.Transactional
 class UserFacade(
     private val userService: UserService,
 ) {
+    // 유저 생성하기
     @Transactional
     fun createUser(
         email: String,
@@ -19,13 +20,14 @@ class UserFacade(
         email = email,
         password = password,
         username = username,
-    ).let {
+    ).let {     // User -> UserDto
         UserDto(
             email = it.email,
             username = it.username,
         )
     }
 
+    // 유저 삭제하기
     @Transactional
     fun deleteUser(
         email: String,
@@ -35,6 +37,7 @@ class UserFacade(
             email = email,
         )
 
+        // 패스워드 검증
         PasswordEncryptionUtil.isEqualToEncryptedPassword(
             password = password,
             encryptedPassword = user.password,

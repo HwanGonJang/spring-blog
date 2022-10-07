@@ -12,6 +12,7 @@ import javax.transaction.Transactional
 class UserService(
     private val userRepository: UserRepository,
 ) {
+    // email로 유저 가져오기 -> null 이면 Exception
     fun getByEmail(
         email: String,
     ): User = userRepository.findByEmail(
@@ -28,10 +29,11 @@ class UserService(
             email = email,
         )
 
+        // 이미 존재하는 고객이면 Exception
         if (user != null) throw UserAlreadyExistException()
 
         val userToSave = User(
-            id = 0,
+            id = 0,     // auto_increment
             email = email,
             password = PasswordEncryptionUtil.encrypt(password),
             username = username,

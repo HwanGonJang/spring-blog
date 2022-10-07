@@ -1,3 +1,4 @@
+-- mysql 테스트 오류 방지를 위해 user -> users로 변경
 CREATE TABLE users
 (
     user_id    BIGINT       NOT NULL AUTO_INCREMENT,

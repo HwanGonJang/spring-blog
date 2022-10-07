@@ -15,6 +15,7 @@ class CommentService(
     private val articleRepository: ArticleRepository,
     private val commentRepository: CommentRepository,
 ) {
+    // 게시글, 댓글 ID로 조회 -> 둘 다 맞아야 조회 가능
     fun getByArticleIdAndCommentId(
         commentId: Long,
         articleId: Long,
@@ -23,6 +24,7 @@ class CommentService(
         articleId = articleId,
     ) ?: throw CommentNotFoundException()
 
+    // 게시글 ID로 조회
     fun getById(
         commentId: Long,
     ) = commentRepository.findById(commentId).orElseThrow { throw CommentNotFoundException() }

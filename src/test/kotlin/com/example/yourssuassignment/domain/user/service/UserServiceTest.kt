@@ -36,6 +36,8 @@ class UserServiceTest : BehaviorSpec() {
                         throw UserAlreadyExistException()
                 }
             }
+
+            // 이미 가입한 고객일때
             When("registered client calls POST /users") {
                 every {
                     userRepository.findByEmail(
