@@ -11,6 +11,7 @@
 * Spring JPA
 * Spring Security
 * Swagger
+    * http://localhost:8070/swagger-ui/
 * Kotlin Logging
 * Validation
 * 그 외 스타터 라이브러리
