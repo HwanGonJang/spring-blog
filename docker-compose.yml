@@ -18,6 +18,7 @@ services:
     restart: unless-stopped
     volumes:
       - yourssu_mysql_volume:/var/lib/mysql
+      - ./table.sql:/docker-entrypoint-initdb.d/table.sql
 
 # 도커 볼륨
 volumes:
