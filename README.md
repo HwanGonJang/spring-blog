@@ -42,7 +42,7 @@ datasource:
 * Email 형식이 아닐 때
   ![image](https://user-images.githubusercontent.com/33739448/194446092-66b93fa6-8b4f-4662-8115-d5f1def5f5ca.png)
 #### Password
-* 6 ~ 13자 사이의 비밀번호가 아닐 떄
+* 6 ~ 13자 사이의 비밀번호가 아닐 때  
   ![image](https://user-images.githubusercontent.com/33739448/194446211-83f61ef9-40e3-4af4-a5ce-e437aa272fd4.png)
 #### Blank
 * "", " ", null 값이 들어왔을 때
