@@ -1,6 +1,6 @@
 # 블로그 만들기(유어슈 백엔드 팀 과제)
 <img src="https://img.shields.io/badge/Kotlin-7F52FF?style=for-the-badge&logo=Kotlin&logoColor=white">
-<img src="https://img.shields.io/badge/Spring Boot-#6DB33F?style=for-the-badge&logo=Spring Boot&logoColor=white">
+<img src="https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=Spring&logoColor=white">
 ## 개요
 스프링 부트, 코틀린, MySQL을 이용하여 간단한 블로그 API를 작성합니다.
 ## 사용한 스택
