@@ -1,10 +1,7 @@
 # 블로그 만들기(유어슈 백엔드 팀 과제)
-***
 ## 개요
-***
 스프링 부트, 코틀린, MySQL을 이용하여 간단한 블로그 API를 작성합니다.
 ## 사용한 스택
-***
 ### 백엔드
 * 스프링 부트 2.7.4
 * 언어: 코틀린
@@ -23,7 +20,6 @@
 * Mockk
 * H2 Database(in-memory DB)
 ## DB 설정하기
-***
 프로젝트 경로에서 다음 명령어를 입력하여 DB 컨테이너를 실행합니다.(도커 설치 필수)
 `docker-compose up -d`
 테이블 DDL은 table.sql에서 user, password, db name 등은 docker-compose.yml 에서 수정할 수 있습니다.
@@ -41,9 +37,7 @@ datasource:
     password: ggona12
 ```
 ## 구현 내용
-***
 ### Validation
-***
 #### Email
 * Email 형식이 아닐 때
   ![image](https://user-images.githubusercontent.com/33739448/194446092-66b93fa6-8b4f-4662-8115-d5f1def5f5ca.png)
@@ -57,7 +51,6 @@ datasource:
 #### Validation Error Response
 ![image](https://user-images.githubusercontent.com/33739448/194446121-9912a9c7-b980-402b-8a87-a4236a0bbbf7.png)
 ### User
-****
 #### User 회원가입
 * 정상 동작
   ![image](https://user-images.githubusercontent.com/33739448/194446457-d844d757-1bb9-4eec-b046-5a0e5e6ce4d1.png)
@@ -74,7 +67,6 @@ datasource:
   ![image](https://user-images.githubusercontent.com/33739448/194446700-c868771a-4008-4f0b-925b-d53a7a4d0326.png)
 * **고객을 삭제하면 ON DELETE CASCADE 옵션으로 해당 고객의 게시글 및 댓글이 함께 삭제됩니다.**
 ### Article
-***
 #### 게시글 등록
 * 정상 동작
   ![image](https://user-images.githubusercontent.com/33739448/194446907-d80f9e08-821a-43b0-b184-1b04f9f8190c.png)
@@ -106,7 +98,6 @@ datasource:
   ![image](https://user-images.githubusercontent.com/33739448/194447485-b58bae6b-1ff2-40eb-98b8-26397e861037.png)
 * **게시글을 삭제하면 ON DELETE CASCADE 옵션으로 해당 게시글의 댓글이 함께 삭제됩니다.**
 ### Comment
-***
 #### 댓글 등록
 * **정상 동작**
   ![image](https://user-images.githubusercontent.com/33739448/194447719-693594eb-5665-4c8b-96ac-11f51eea36cb.png)
@@ -138,7 +129,6 @@ datasource:
   ![image](https://user-images.githubusercontent.com/33739448/194447485-b58bae6b-1ff2-40eb-98b8-26397e861037.png)
   
 ### 테스트 코드
-***
 비즈니스 로직이 없는 메소드 혹은 기본으로 제공되는 메소드에 대해서는 테스트 코드를 작성하지 않았습니다.
 #### 테스트 방법
 * Gradel Test
@@ -156,4 +146,4 @@ datasource:
 ![image](https://user-images.githubusercontent.com/33739448/194448980-cc45a2f6-7d4f-4de4-8726-f325ae5b1eb9.png)
 
 
-감사합니다!
+### 감사합니다!
