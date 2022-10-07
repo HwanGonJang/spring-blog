@@ -39,24 +39,24 @@ datasource:
 ## 구현 내용
 ### Validation
 #### Email
-* Email 형식이 아닐 때
+* **Email 형식이 아닐 때**
   ![image](https://user-images.githubusercontent.com/33739448/194446092-66b93fa6-8b4f-4662-8115-d5f1def5f5ca.png)
 #### Password
-* 6 ~ 13자 사이의 비밀번호가 아닐 때  
+* **6 ~ 13자 사이의 비밀번호가 아닐 때**
   ![image](https://user-images.githubusercontent.com/33739448/194446211-83f61ef9-40e3-4af4-a5ce-e437aa272fd4.png)
 #### Blank
-* "", " ", null 값이 들어왔을 때
+* **"", " ", null 값이 들어왔을 때**
   ![image](https://user-images.githubusercontent.com/33739448/194446344-0ad3b89e-dfe0-46ed-8f01-d2cfce0bac12.png)
   ![image](https://user-images.githubusercontent.com/33739448/194446385-a4b7c380-1bd0-4c3c-a5ae-e4916361bbc0.png)
 #### Validation Error Response
 ![image](https://user-images.githubusercontent.com/33739448/194446121-9912a9c7-b980-402b-8a87-a4236a0bbbf7.png)
 ### User
 #### User 회원가입
-* 정상 동작
+* **정상 동작**  
   ![image](https://user-images.githubusercontent.com/33739448/194446457-d844d757-1bb9-4eec-b046-5a0e5e6ce4d1.png)
   ![image](https://user-images.githubusercontent.com/33739448/194446489-d028d3c2-9b59-401f-a1c1-f12953c9d654.png)
   ![image](https://user-images.githubusercontent.com/33739448/194446616-74f737da-1d94-4878-8849-76a36ffaf6ea.png)
-* 이미 존재하는 회원일 때
+* **이미 존재하는 회원일 때**
   ![image](https://user-images.githubusercontent.com/33739448/194446523-c84e4ad4-5f42-4cec-8a41-4111190e635c.png)
 #### User 회원탈퇴
 * **정상 동작**
@@ -68,22 +68,22 @@ datasource:
 * **고객을 삭제하면 ON DELETE CASCADE 옵션으로 해당 고객의 게시글 및 댓글이 함께 삭제됩니다.**
 ### Article
 #### 게시글 등록
-* 정상 동작
+* **정상 동작**
   ![image](https://user-images.githubusercontent.com/33739448/194446907-d80f9e08-821a-43b0-b184-1b04f9f8190c.png)
   ![image](https://user-images.githubusercontent.com/33739448/194446929-d8ac11cc-9087-4879-8d50-64ad53c10770.png)
   ![image](https://user-images.githubusercontent.com/33739448/194447094-47a7bd37-9fee-4fad-9bac-25429678070e.png)
-* 고객이 존재하지 않을 때
+* **고객이 존재하지 않을 때**
   ![image](https://user-images.githubusercontent.com/33739448/194446967-5e03d1da-d16a-4d98-8730-df50aed60db5.png)
-* 비밀번호 불일치
+* **비밀번호 불일치**
   ![image](https://user-images.githubusercontent.com/33739448/194446998-1fa82bd2-2142-42c1-98a0-eea397eafca5.png)
 #### 게시글 수정
-* 정상 동작
+* **정상 동작**
   ![image](https://user-images.githubusercontent.com/33739448/194447184-86eac214-dea8-49b1-9a2b-67a4bdd9e0fe.png)
   ![image](https://user-images.githubusercontent.com/33739448/194447155-54712d34-eb70-4992-a03c-662ed241ec19.png)
-* 고객이 존재하지 않을 때 or 해당하는 게시글이 존재하지 않을 때
+* **고객이 존재하지 않을 때 or 해당하는 게시글이 존재하지 않을 때**
   ![image](https://user-images.githubusercontent.com/33739448/194447245-12bd8a83-2487-41be-ad37-fec187e4cda3.png)
   ![image](https://user-images.githubusercontent.com/33739448/194447209-e7189242-e0ba-4221-b85b-d102ee6a8c05.png)
-* 비밀번호 불일치 or 수정할 권한이 없을 때(작성자가 아닐 때)
+* **비밀번호 불일치 or 수정할 권한이 없을 때(작성자가 아닐 때)**
   ![image](https://user-images.githubusercontent.com/33739448/194447326-e6512120-d959-41d6-bbca-89492c393b96.png)
   ![image](https://user-images.githubusercontent.com/33739448/194447383-93083d7b-9343-4bf3-919e-d12ff4bd0489.png)
 #### 게시글 삭제
@@ -112,10 +112,10 @@ datasource:
 * **정상 동작**
   ![image](https://user-images.githubusercontent.com/33739448/194448054-e3b26bc5-7278-48b7-9abe-bfaa9fe4beb2.png)
   ![image](https://user-images.githubusercontent.com/33739448/194448077-0b0d5300-d26f-419e-a1df-fbbbe4e5e802.png)
-* 고객이 존재하지 않을 때 or 해당하는 댓글이 존재하지 않을 때
+* **고객이 존재하지 않을 때 or 해당하는 댓글이 존재하지 않을 때**
   ![image](https://user-images.githubusercontent.com/33739448/194447245-12bd8a83-2487-41be-ad37-fec187e4cda3.png)
   ![image](https://user-images.githubusercontent.com/33739448/194447981-d1e87549-d704-4f89-9554-88a0cfe31664.png)
-* 비밀번호 불일치 or 수정할 권한이 없을 때(작성자가 아닐 때)
+* **비밀번호 불일치 or 수정할 권한이 없을 때(작성자가 아닐 때)**
   ![image](https://user-images.githubusercontent.com/33739448/194447326-e6512120-d959-41d6-bbca-89492c393b96.png)
   ![image](https://user-images.githubusercontent.com/33739448/194447485-b58bae6b-1ff2-40eb-98b8-26397e861037.png)
 #### 댓글 삭제
