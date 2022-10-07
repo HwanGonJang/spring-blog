@@ -28,6 +28,7 @@
 
 위와 같이 도커 컨테이너가 정상적으로 실행되면 Datasource를 지정해 DB를 연결합니다.(IntelliJ 기준)
 ![image](https://user-images.githubusercontent.com/33739448/194445803-69da21e6-71d2-4a99-879e-b2e946fa089c.png)
+![image](https://user-images.githubusercontent.com/33739448/194451261-aa10f610-22eb-483f-b47f-be110fc922cc.png)
 
 JPA 사용을 위해 application.yml에서 datasource 설정을 해줍니다.
 ```
