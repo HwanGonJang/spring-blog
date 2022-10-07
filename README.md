@@ -42,7 +42,7 @@ datasource:
 * **Email 형식이 아닐 때**
   ![image](https://user-images.githubusercontent.com/33739448/194446092-66b93fa6-8b4f-4662-8115-d5f1def5f5ca.png)
 #### Password
-* **6 ~ 13자 사이의 비밀번호가 아닐 때**
+* **6 ~ 13자 사이의 비밀번호가 아닐 때**  
   ![image](https://user-images.githubusercontent.com/33739448/194446211-83f61ef9-40e3-4af4-a5ce-e437aa272fd4.png)
 #### Blank
 * **"", " ", null 값이 들어왔을 때**
@@ -95,7 +95,7 @@ datasource:
   ![image](https://user-images.githubusercontent.com/33739448/194447209-e7189242-e0ba-4221-b85b-d102ee6a8c05.png)
 * **비밀번호 불일치 or 삭제할 권한이 없을 때(작성자가 아닐 때)**
   ![image](https://user-images.githubusercontent.com/33739448/194447326-e6512120-d959-41d6-bbca-89492c393b96.png)
-  ![image](https://user-images.githubusercontent.com/33739448/194447485-b58bae6b-1ff2-40eb-98b8-26397e861037.png)
+  ![image](https://user-images.githubusercontent.com/33739448/194450154-93f9bb73-d03f-4fb3-bbe1-7a913e83e3fe.png)
 * **게시글을 삭제하면 ON DELETE CASCADE 옵션으로 해당 게시글의 댓글이 함께 삭제됩니다.**
 ### Comment
 #### 댓글 등록
@@ -126,7 +126,7 @@ datasource:
   ![image](https://user-images.githubusercontent.com/33739448/194448241-766831cc-05cd-4d72-9522-07ede8d9790c.png)
 * **비밀번호 불일치 or 삭제할 권한이 없을 때(작성자가 아닐 때)**
   ![image](https://user-images.githubusercontent.com/33739448/194447326-e6512120-d959-41d6-bbca-89492c393b96.png)
-  ![image](https://user-images.githubusercontent.com/33739448/194447485-b58bae6b-1ff2-40eb-98b8-26397e861037.png)
+  ![image](https://user-images.githubusercontent.com/33739448/194450162-42d8a553-f8f2-4c3a-a997-e8d42b6807a0.png)
   
 ### 테스트 코드
 비즈니스 로직이 없는 메소드 혹은 기본으로 제공되는 메소드에 대해서는 테스트 코드를 작성하지 않았습니다.
@@ -136,6 +136,42 @@ datasource:
 * Mockk
 * **BDD 방식**
   * BehaviorSpec()
+  * 예시
+    ```
+@DataJpaTest
+@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
+class UserRepositoryTest @Autowired constructor(
+    private val userRepository: UserRepository
+) : BehaviorSpec() {
+    init {
+        // UserRepository findByEmail 테스트
+        Given("the client try to use service and specific user is saved in db") {
+            val email = "test@gmail.com"
+            val user = userRepository.save(
+                User(
+                    id = 1,
+                    email = email,
+                    password = "1234",
+                    username = "tester",
+                )
+            )
+            When("the client calls api that needs the user") {
+                val result = userRepository.findByEmail(
+                    email = email,
+                )
+                Then("find user for validation or info") {
+                    result?.id shouldBe user.id
+                    result?.email shouldBe user.email
+                    result?.password shouldBe user.password
+                    result?.username shouldBe user.username
+
+                    println("고객이 정상적으로 조회됐습니다.")
+                }
+            }
+        }
+    }
+}
+```
 * Integration Test
   * SpringBootTest
 * Unit Test
