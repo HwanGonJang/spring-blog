@@ -136,8 +136,8 @@ datasource:
 * Mockk
 * **BDD 방식**
   * BehaviorSpec()
-  * 예시
-    ```
+* 예시
+```
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 class UserRepositoryTest @Autowired constructor(
