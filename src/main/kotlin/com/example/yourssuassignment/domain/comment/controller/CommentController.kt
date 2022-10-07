@@ -110,10 +110,10 @@ class CommentController(
     )
     @DeleteMapping("/{articleId}/{commentId}")
     fun deleteComment(
-        @Parameter(description = "[필수] 수정할 게시글의 ID입니다.")
+        @Parameter(description = "[필수] 삭제할 게시글의 ID입니다.")
         @PathVariable
         articleId: Long,
-        @Parameter(description = "[필수] 수정할 댓글의 ID입니다.")
+        @Parameter(description = "[필수] 삭제할 댓글의 ID입니다.")
         @PathVariable
         commentId: Long,
         @RequestBody
