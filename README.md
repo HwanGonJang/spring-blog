@@ -16,8 +16,8 @@
 * 그 외 스타터 라이브러리
 ### 테스트 코드
 * Kotest
-* JUnit5
 * Mockk
+* JUnit5
 * H2 Database(in-memory DB)
 ## DB 설정하기
 프로젝트 경로에서 다음 명령어를 입력하여 DB 컨테이너를 실행합니다.(도커 설치 필수)
