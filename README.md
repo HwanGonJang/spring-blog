@@ -53,14 +53,26 @@ datasource:
   ![image](https://user-images.githubusercontent.com/33739448/194446385-a4b7c380-1bd0-4c3c-a5ae-e4916361bbc0.png)
 #### Validation Error Response
 ![image](https://user-images.githubusercontent.com/33739448/194446121-9912a9c7-b980-402b-8a87-a4236a0bbbf7.png)
-### User
+### 로그인 JWT 인증
 #### User 회원가입
 * **정상 동작**  
   ![image](https://user-images.githubusercontent.com/33739448/194446457-d844d757-1bb9-4eec-b046-5a0e5e6ce4d1.png)
   ![image](https://user-images.githubusercontent.com/33739448/194446489-d028d3c2-9b59-401f-a1c1-f12953c9d654.png)
   ![image](https://user-images.githubusercontent.com/33739448/194446616-74f737da-1d94-4878-8849-76a36ffaf6ea.png)
+  ![image](https://user-images.githubusercontent.com/33739448/199890698-c3206673-77d5-430a-b57f-2df2ffc1633a.png)
 * **이미 존재하는 회원일 때**
   ![image](https://user-images.githubusercontent.com/33739448/194446523-c84e4ad4-5f42-4cec-8a41-4111190e635c.png)
+#### User Login
+* **정상 동작**
+   ![image](https://user-images.githubusercontent.com/33739448/199890568-f98853f7-3d86-44f5-aa70-914ce6cd7996.png)
+* **비밀번호 불일치**
+   ![image](https://user-images.githubusercontent.com/33739448/199890828-4506c219-24dc-41f9-9e93-3a680b6fb7df.png)
+#### 토큰 재발급
+* **정상 동작**
+   ![image](https://user-images.githubusercontent.com/33739448/199890568-f98853f7-3d86-44f5-aa70-914ce6cd7996.png)
+* **잘못된 토큰**
+   ![image](https://user-images.githubusercontent.com/33739448/199891100-ae725e65-879c-48f1-ac4a-13f5f6dbc71c.png)
+### User
 #### User 회원탈퇴
 * **정상 동작**  
   ![image](https://user-images.githubusercontent.com/33739448/194446816-9a4c363e-b580-46fe-88a2-28290e7deead.png)
