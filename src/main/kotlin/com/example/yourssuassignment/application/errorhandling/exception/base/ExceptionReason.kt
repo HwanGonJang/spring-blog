@@ -12,6 +12,7 @@ enum class ExceptionReason(val status: HttpStatus, val reason: String) {
     COMMENT_NOT_FOUND(HttpStatus.NOT_FOUND, "존재하지 않는 댓글입니다."),
     UPDATE_UNAUTHORIZED(HttpStatus.NOT_ACCEPTABLE, "수정할 권한이 없습니다."),
     DELETE_UNAUTHORIZED(HttpStatus.NOT_ACCEPTABLE, "삭제할 권한이 없습니다."),
+    TOKEN_NOT_VALIDATED(HttpStatus.BAD_REQUEST, "유효하지 않은 토큰입니다.")
     ;
 
     fun toDto() = ExceptionReasonDto(
