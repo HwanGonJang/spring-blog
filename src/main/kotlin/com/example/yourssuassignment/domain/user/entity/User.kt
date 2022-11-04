@@ -1,7 +1,11 @@
 package com.example.yourssuassignment.domain.user.entity
 
+import com.example.yourssuassignment.common.converter.UserRoleConverter
 import com.example.yourssuassignment.common.entity.BaseTimeEntity
+import com.example.yourssuassignment.common.enum.UserRole
 import javax.persistence.*
+import javax.validation.constraints.NotNull
+import javax.validation.constraints.Size
 
 @Entity
 @Table(name = "users")
@@ -19,4 +23,15 @@ class User(
 
     @Column(name = "username", nullable = false)
     val username: String,
+
+    @Size(max = 255)
+    @NotNull
+    @Column(name = "refresh_token")
+    var refreshToken: String?,
+
+    @Size(max = 255)
+    @NotNull
+    @Column(name = "user_role", nullable = false)
+    @Convert(converter = UserRoleConverter::class)
+    val userRole: UserRole,
 ) : BaseTimeEntity()
