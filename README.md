@@ -56,9 +56,9 @@ datasource:
 ### 로그인 JWT 인증
 #### User 회원가입
 * **정상 동작**  
-  ![image](https://user-images.githubusercontent.com/33739448/194446457-d844d757-1bb9-4eec-b046-5a0e5e6ce4d1.png)
-  ![image](https://user-images.githubusercontent.com/33739448/194446489-d028d3c2-9b59-401f-a1c1-f12953c9d654.png)
-  ![image](https://user-images.githubusercontent.com/33739448/194446616-74f737da-1d94-4878-8849-76a36ffaf6ea.png)
+  ![image](https://user-images.githubusercontent.com/33739448/199891180-19fbb1ef-13a7-4112-b8c2-64ec97a33cb2.png)
+  ![image](https://user-images.githubusercontent.com/33739448/199891269-66d1eab0-1652-4f3a-a598-d0cf9cf6340d.png)
+  ![image](https://user-images.githubusercontent.com/33739448/199891228-001d7e28-f674-4f79-a8f4-4a9fb8d58529.png)
   ![image](https://user-images.githubusercontent.com/33739448/199890698-c3206673-77d5-430a-b57f-2df2ffc1633a.png)
 * **이미 존재하는 회원일 때**
   ![image](https://user-images.githubusercontent.com/33739448/194446523-c84e4ad4-5f42-4cec-8a41-4111190e635c.png)
