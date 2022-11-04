@@ -17,31 +17,6 @@ class UserController(
     private val userFacade: UserFacade,
 ) {
     @Operation(
-        summary = "고객 회원가입",
-        responses = [
-            ApiResponse(
-                responseCode = "200",
-                description = "OK",
-            ),
-            ApiResponse(
-                responseCode = "409",
-                description = "해당하는 고객이 이미 존재합니다.",
-                content = arrayOf(Content(schema = Schema(hidden = true))),
-            ),
-        ],
-    )
-    @PostMapping
-    fun createUser(
-        @RequestBody
-        @Valid
-        createUserRequest: CreateUserRequest,
-    ): UserDto = userFacade.createUser(
-        email = createUserRequest.email,
-        password = createUserRequest.password,
-        username = createUserRequest.username,
-    )
-
-    @Operation(
         summary = "고객 탈퇴",
         responses = [
             ApiResponse(
