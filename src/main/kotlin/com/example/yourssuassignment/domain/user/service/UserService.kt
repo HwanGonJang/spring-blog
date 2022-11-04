@@ -1,6 +1,7 @@
 package com.example.yourssuassignment.domain.user.service
 
 import com.example.yourssuassignment.application.errorhandling.exception.UserNotFoundException
+import com.example.yourssuassignment.common.enum.UserRole
 import com.example.yourssuassignment.common.util.PasswordEncryptionUtil
 import com.example.yourssuassignment.domain.user.entity.User
 import com.example.yourssuassignment.domain.user.repository.UserRepository
@@ -24,6 +25,7 @@ class UserService(
         email: String,
         password: String,
         username: String,
+        role: UserRole
     ): User {
         val user = userRepository.findByEmail(
             email = email,
@@ -37,10 +39,17 @@ class UserService(
             email = email,
             password = PasswordEncryptionUtil.encrypt(password),
             username = username,
+            refreshToken = null,
+            userRole = role,
         )
 
         return userRepository.save(userToSave)
     }
+
+    @Transactional
+    fun save(
+        user: User
+    ) = userRepository.save(user)
 
     @Transactional
     fun delete(

@@ -1,5 +1,6 @@
 package com.example.yourssuassignment.domain.user.facade
 
+import com.example.yourssuassignment.common.enum.UserRole
 import com.example.yourssuassignment.common.util.PasswordEncryptionUtil
 import com.example.yourssuassignment.domain.user.service.UserService
 import com.example.yourssuassignment.dto.UserDto
@@ -16,14 +17,17 @@ class UserFacade(
         email: String,
         password: String,
         username: String,
+        role: UserRole,
     ): UserDto = userService.createUser(
         email = email,
         password = password,
         username = username,
+        role = role,
     ).let {     // User -> UserDto
         UserDto(
             email = it.email,
             username = it.username,
+            role = it.userRole,
         )
     }
 

@@ -1,0 +1,6 @@
+package com.example.yourssuassignment.application.errorhandling.exception
+
+import kr.smartdoctor.api.autoreceipt.application.errorhandling.exception.base.ExceptionReason
+import kr.smartdoctor.api.autoreceipt.application.errorhandling.exception.base.ResponseStatusReasonException
+
+class TokenNotValidateException : ResponseStatusReasonException(ExceptionReason.TOKEN_NOT_VALIDATED)
