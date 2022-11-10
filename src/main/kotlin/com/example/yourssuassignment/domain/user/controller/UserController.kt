@@ -1,15 +1,12 @@
 package com.example.yourssuassignment.domain.user.controller
 
-import com.example.yourssuassignment.domain.user.controller.request.CreateUserRequest
-import com.example.yourssuassignment.domain.user.controller.request.DeleteUserRequest
 import com.example.yourssuassignment.domain.user.facade.UserFacade
-import com.example.yourssuassignment.dto.UserDto
 import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.media.Content
 import io.swagger.v3.oas.annotations.media.Schema
 import io.swagger.v3.oas.annotations.responses.ApiResponse
 import org.springframework.web.bind.annotation.*
-import javax.validation.Valid
+import javax.validation.constraints.Email
 
 @RestController
 @RequestMapping("/users")
@@ -37,12 +34,11 @@ class UserController(
     )
     @DeleteMapping
     fun deleteUser(
-        @RequestBody
-        deleteUserRequest: DeleteUserRequest,
+        @Email
+        email: String,
     ) {
         userFacade.deleteUser(
-            email = deleteUserRequest.email,
-            password = deleteUserRequest.password,
+            email = email,
         )
     }
 }

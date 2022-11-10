@@ -35,16 +35,9 @@ class UserFacade(
     @Transactional
     fun deleteUser(
         email: String,
-        password: String,
     ) {
         val user = userService.getByEmail(
             email = email,
-        )
-
-        // 패스워드 검증
-        PasswordEncryptionUtil.isEqualToEncryptedPassword(
-            password = password,
-            encryptedPassword = user.password,
         )
 
         userService.delete(user)

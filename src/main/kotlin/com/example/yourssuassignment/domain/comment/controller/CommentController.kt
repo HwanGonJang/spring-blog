@@ -1,7 +1,7 @@
 package com.example.yourssuassignment.domain.comment.controller
 
+import com.example.yourssuassignment.application.annotation.Email
 import com.example.yourssuassignment.domain.comment.controller.request.CreateCommentRequest
-import com.example.yourssuassignment.domain.comment.controller.request.DeleteCommentRequest
 import com.example.yourssuassignment.domain.comment.facade.CommentFacade
 import com.example.yourssuassignment.dto.CommentDto
 import io.swagger.v3.oas.annotations.Operation
@@ -38,6 +38,8 @@ class CommentController(
     )
     @PostMapping("/{articleId}")
     fun createComment(
+        @Email
+        email: String,
         @Parameter(description = "[필수] 작성할 댓글의 게시글ID입니다.")
         @PathVariable
         articleId: Long,
@@ -46,8 +48,7 @@ class CommentController(
         createCommentRequest: CreateCommentRequest,
     ): CommentDto = commentFacade.createComment(
         articleId = articleId,
-        email = createCommentRequest.email,
-        password = createCommentRequest.password,
+        email = email,
         content = createCommentRequest.content,
     )
 
@@ -72,6 +73,8 @@ class CommentController(
     )
     @PatchMapping("/{articleId}/{commentId}")
     fun updateComment(
+        @Email
+        email: String,
         @Parameter(description = "[필수] 수정할 게시글의 ID입니다.")
         @PathVariable
         articleId: Long,
@@ -84,8 +87,7 @@ class CommentController(
     ): CommentDto = commentFacade.updateComment(
         articleId = articleId,
         commentId = commentId,
-        email = createCommentRequest.email,
-        password = createCommentRequest.password,
+        email = email,
         content = createCommentRequest.content,
     )
 
@@ -110,20 +112,19 @@ class CommentController(
     )
     @DeleteMapping("/{articleId}/{commentId}")
     fun deleteComment(
+        @Email
+        email: String,
         @Parameter(description = "[필수] 삭제할 게시글의 ID입니다.")
         @PathVariable
         articleId: Long,
         @Parameter(description = "[필수] 삭제할 댓글의 ID입니다.")
         @PathVariable
         commentId: Long,
-        @RequestBody
-        deleteCommentRequest: DeleteCommentRequest,
     ) {
         commentFacade.deleteComment(
             articleId = articleId,
             commentId = commentId,
-            email = deleteCommentRequest.email,
-            password = deleteCommentRequest.password,
+            email = email,
         )
     }
 }

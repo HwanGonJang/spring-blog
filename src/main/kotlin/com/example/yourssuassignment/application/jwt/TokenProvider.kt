@@ -14,6 +14,9 @@ import org.springframework.security.core.GrantedAuthority
 import org.springframework.security.core.authority.SimpleGrantedAuthority
 import org.springframework.security.core.userdetails.User
 import org.springframework.stereotype.Component
+import org.springframework.util.StringUtils
+import org.springframework.web.context.request.RequestContextHolder
+import org.springframework.web.context.request.ServletRequestAttributes
 import java.time.LocalDateTime
 import java.time.ZoneId
 import java.util.*
@@ -115,4 +118,16 @@ class TokenProvider(
             listOf(SimpleGrantedAuthority(tokenVerifier.getClaim("rol").asString()))
         )
     }
+
+    fun getToken(): String {
+        val httpServletRequest = (RequestContextHolder.getRequestAttributes() as ServletRequestAttributes).request
+
+        val bearerToken = httpServletRequest.getHeader("Authorization")
+
+        if (StringUtils.hasText(bearerToken) && bearerToken.startsWith("Bearer "))
+            return bearerToken.substring(7)
+        else
+            throw TokenNotValidateException()
+    }
+
 }
