@@ -1,8 +1,8 @@
-package com.example.yourssuassignment.domain.user.controller
+package com.example.yourssuassignment.domain.article.controller
 
+import com.example.yourssuassignment.application.annotation.Email
+import com.example.yourssuassignment.domain.article.controller.request.CreateArticleRequest
 import com.example.yourssuassignment.domain.article.facade.ArticleFacade
-import com.example.yourssuassignment.domain.comment.controller.request.DeleteCommentRequest
-import com.example.yourssuassignment.domain.user.controller.request.CreateArticleRequest
 import com.example.yourssuassignment.dto.ArticleDto
 import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.Parameter
@@ -38,12 +38,13 @@ class ArticleController(
     )
     @PostMapping
     fun createArticle(
+        @Email
+        email: String,
         @RequestBody
         @Valid
         createArticleRequest: CreateArticleRequest,
     ): ArticleDto = articleFacade.createArticle(
-        email = createArticleRequest.email,
-        password = createArticleRequest.password,
+        email = email,
         title = createArticleRequest.title,
         content = createArticleRequest.content,
     )
@@ -69,6 +70,8 @@ class ArticleController(
     )
     @PatchMapping("/{articleId}")
     fun updateArticle(
+        @Email
+        email: String,
         @Parameter(description = "[필수] 수정할 게시글의 ID입니다.")
         @PathVariable
         articleId: Long,
@@ -77,8 +80,7 @@ class ArticleController(
         createArticleRequest: CreateArticleRequest,
     ): ArticleDto = articleFacade.updateArticle(
         articleId = articleId,
-        email = createArticleRequest.email,
-        password = createArticleRequest.password,
+        email = email,
         title = createArticleRequest.title,
         content = createArticleRequest.content,
     )
@@ -104,17 +106,15 @@ class ArticleController(
     )
     @DeleteMapping("/{articleId}")
     fun deleteArticle(
+        @Email
+        email: String,
         @Parameter(description = "[필수] 삭제할 게시글의 ID입니다.")
         @PathVariable
         articleId: Long,
-        @RequestBody
-        @Valid
-        deleteCommentRequest: DeleteCommentRequest,
     ) {
         articleFacade.deleteArticle(
             articleId = articleId,
-            email = deleteCommentRequest.email,
-            password = deleteCommentRequest.password,
+            email = email,
         )
     }
 }

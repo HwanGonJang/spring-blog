@@ -3,7 +3,7 @@ package com.example.yourssuassignment.domain.auth.controller
 import com.example.yourssuassignment.domain.auth.controller.request.LoginRequest
 import com.example.yourssuassignment.domain.auth.controller.response.LoginResponse
 import com.example.yourssuassignment.domain.auth.facade.AuthFacade
-import com.example.yourssuassignment.domain.user.controller.request.CreateUserRequest
+import com.example.yourssuassignment.domain.auth.controller.request.CreateUserRequest
 import com.example.yourssuassignment.domain.user.facade.UserFacade
 import com.example.yourssuassignment.dto.TokenDto
 import com.example.yourssuassignment.dto.UserDto
@@ -70,25 +70,43 @@ class AuthController(
         password = loginRequest.password,
     )
 
+
     @Operation(
-        summary = "재발급",
+        summary = "Access Token으로 재발급",
         responses = [
             ApiResponse(
                 responseCode = "200",
                 description = "OK",
             ),
             ApiResponse(
-                responseCode = "409",
-                description = "해당하는 고객이 이미 존재합니다.",
+                responseCode = "400",
+                description = "잘못된 토큰입니다.",
                 content = arrayOf(Content(schema = Schema(hidden = true))),
             ),
         ],
     )
-    @PatchMapping("/reissue")
-    fun reissue(
+    @PatchMapping("/reissueWithAccessToken")
+    fun reissueWithAccessToken(): LoginResponse = authFacade.reissueWithAccessToken()
+
+    @Operation(
+        summary = "Refresh Token으로 재발급",
+        responses = [
+            ApiResponse(
+                responseCode = "200",
+                description = "OK",
+            ),
+            ApiResponse(
+                responseCode = "400",
+                description = "잘못된 토큰입니다.",
+                content = arrayOf(Content(schema = Schema(hidden = true))),
+            ),
+        ],
+    )
+    @PatchMapping("/reissueWithRefreshToken")
+    fun reissueWithRefreshToken(
         @RequestBody
         tokenDto: TokenDto,
-    ): LoginResponse = authFacade.reissue(
+    ): LoginResponse = authFacade.reissueWithRefreshToken(
         accessToken = tokenDto.accessToken,
         refreshToken = tokenDto.refreshToken,
     )

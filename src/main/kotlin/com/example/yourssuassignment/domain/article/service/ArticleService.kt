@@ -19,7 +19,6 @@ class ArticleService(
     @Transactional
     fun createArticle(
         email: String,
-        password: String,
         title: String,
         content: String,
         user: User,

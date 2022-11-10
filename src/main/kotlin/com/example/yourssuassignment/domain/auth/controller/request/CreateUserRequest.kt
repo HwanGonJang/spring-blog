@@ -1,4 +1,4 @@
-package com.example.yourssuassignment.domain.user.controller.request
+package com.example.yourssuassignment.domain.auth.controller.request
 
 import com.example.yourssuassignment.common.enum.UserRole
 import io.swagger.v3.oas.annotations.media.Schema
