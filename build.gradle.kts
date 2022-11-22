@@ -1,4 +1,5 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.jetbrains.kotlin.kapt3.base.Kapt.kapt
 
 plugins {
     id("org.springframework.boot") version "2.7.4"
@@ -6,6 +7,7 @@ plugins {
     kotlin("jvm") version "1.6.21"
     kotlin("plugin.spring") version "1.6.21"
     kotlin("plugin.jpa") version "1.6.21"
+    kotlin("kapt") version "1.6.21"
 }
 
 group = "com.example"
@@ -37,6 +39,10 @@ dependencies {
     implementation("mysql:mysql-connector-java")
     implementation("io.github.microutils", "kotlin-logging-jvm", "2.1.23")
     implementation("org.springframework.cloud:spring-cloud-starter-sleuth")
+
+    implementation("com.querydsl", "querydsl-jpa", "5.0.0")
+    implementation("com.querydsl", "querydsl-kotlin", "5.0.0")
+    kapt("com.querydsl:querydsl-apt:5.0.0:jpa")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.springframework.security:spring-security-test")
