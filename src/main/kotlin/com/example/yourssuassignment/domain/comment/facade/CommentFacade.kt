@@ -20,17 +20,10 @@ class CommentFacade(
     fun createComment(
         articleId: Long,
         email: String,
-        password: String,
         content: String,
     ): CommentDto {
         val user = userService.getByEmail(
             email = email,
-        )
-
-        // 패스워드 검증
-        PasswordEncryptionUtil.isEqualToEncryptedPassword(
-            password = password,
-            encryptedPassword = user.password,
         )
 
         val article = articleService.getById(articleId)
@@ -54,17 +47,10 @@ class CommentFacade(
         articleId: Long,
         commentId: Long,
         email: String,
-        password: String,
         content: String,
     ): CommentDto {
         val user = userService.getByEmail(
             email = email,
-        )
-
-        // 패스워드 검증
-        PasswordEncryptionUtil.isEqualToEncryptedPassword(
-            password = password,
-            encryptedPassword = user.password,
         )
 
         val comment = commentService.getByArticleIdAndCommentId(
@@ -93,16 +79,9 @@ class CommentFacade(
         articleId: Long,
         commentId: Long,
         email: String,
-        password: String,
     ) {
         val user = userService.getByEmail(
             email = email,
-        )
-
-        // 패스워드 검증
-        PasswordEncryptionUtil.isEqualToEncryptedPassword(
-            password = password,
-            encryptedPassword = user.password,
         )
 
         val comment = commentService.getByArticleIdAndCommentId(

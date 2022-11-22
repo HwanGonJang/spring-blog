@@ -36,7 +36,30 @@ class AuthFacade(
         )
     }
 
-    fun reissue(
+    fun reissueWithAccessToken(): LoginResponse {
+        val accessToken = tokenProvider.getToken()
+
+        val authentication = tokenProvider.getAuthentication(
+            accessToken = accessToken,
+        )
+
+        val user = userService.getByEmail(authentication.name)
+
+        val tokenDto = tokenProvider.createToken(authentication)
+
+        user.refreshToken = tokenDto.refreshToken
+        val modifiedUser = userService.save(user)
+
+        return LoginResponse(
+            email = modifiedUser.email,
+            username = modifiedUser.username,
+            role = modifiedUser.userRole,
+            accessToken = tokenDto.accessToken,
+            refreshToken = modifiedUser.refreshToken,
+        )
+    }
+
+    fun reissueWithRefreshToken(
         accessToken: String,
         refreshToken: String,
     ): LoginResponse {

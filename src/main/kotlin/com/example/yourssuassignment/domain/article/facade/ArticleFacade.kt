@@ -17,23 +17,17 @@ class ArticleFacade(
     @Transactional
     fun createArticle(
         email: String,
-        password: String,
         title: String,
         content: String,
     ): ArticleDto {
+        println(email)
+
         val user = userService.getByEmail(
             email = email,
         )
 
-        // 패스워드 검증
-        PasswordEncryptionUtil.isEqualToEncryptedPassword(
-            password = password,
-            encryptedPassword = user.password,
-        )
-
         return articleService.createArticle(
             email = email,
-            password = password,
             title = title,
             content = content,
             user = user,
@@ -51,18 +45,11 @@ class ArticleFacade(
     fun updateArticle(
         articleId: Long,
         email: String,
-        password: String,
         title: String,
         content: String,
     ): ArticleDto {
         val user = userService.getByEmail(
             email = email,
-        )
-
-        // 패스워드 검증
-        PasswordEncryptionUtil.isEqualToEncryptedPassword(
-            password = password,
-            encryptedPassword = user.password,
         )
 
         val article = articleService.getById(
@@ -91,16 +78,9 @@ class ArticleFacade(
     fun deleteArticle(
         articleId: Long,
         email: String,
-        password: String,
     ) {
         val user = userService.getByEmail(
             email = email,
-        )
-
-        // 패스워드 검증
-        PasswordEncryptionUtil.isEqualToEncryptedPassword(
-            password = password,
-            encryptedPassword = user.password,
         )
 
         val article = articleService.getById(

@@ -1,4 +1,4 @@
-package com.example.yourssuassignment.domain.auth.service
+package com.example.yourssuassignment.application.jwt
 
 import com.example.yourssuassignment.application.errorhandling.exception.UserNotFoundException
 import com.example.yourssuassignment.domain.user.repository.UserRepository

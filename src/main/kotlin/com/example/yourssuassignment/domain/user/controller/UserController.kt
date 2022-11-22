@@ -1,6 +1,5 @@
 package com.example.yourssuassignment.domain.user.controller
 
-import com.example.yourssuassignment.domain.user.controller.request.DeleteUserRequest
 import com.example.yourssuassignment.domain.user.controller.response.GetUserResponse
 import com.example.yourssuassignment.domain.user.facade.UserFacade
 import io.swagger.v3.oas.annotations.Operation
@@ -11,6 +10,7 @@ import org.springframework.format.annotation.DateTimeFormat
 import org.springframework.security.access.prepost.PreAuthorize
 import org.springframework.web.bind.annotation.*
 import java.time.LocalDate
+import javax.validation.constraints.Email
 
 @RestController
 @RequestMapping("/users")
@@ -86,12 +86,11 @@ class UserController(
     )
     @DeleteMapping
     fun deleteUser(
-        @RequestBody
-        deleteUserRequest: DeleteUserRequest,
+        @Email
+        email: String,
     ) {
         userFacade.deleteUser(
-            email = deleteUserRequest.email,
-            password = deleteUserRequest.password,
+            email = email,
         )
     }
 }
