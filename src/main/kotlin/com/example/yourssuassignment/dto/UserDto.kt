@@ -1,6 +1,6 @@
 package com.example.yourssuassignment.dto
 
-import com.example.yourssuassignment.common.enum.UserRole
+import com.example.yourssuassignment.common.enums.UserRole
 
 data class UserDto(
     val email: String,

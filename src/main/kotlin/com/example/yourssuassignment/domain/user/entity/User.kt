@@ -2,7 +2,7 @@ package com.example.yourssuassignment.domain.user.entity
 
 import com.example.yourssuassignment.common.converter.UserRoleConverter
 import com.example.yourssuassignment.common.entity.BaseTimeEntity
-import com.example.yourssuassignment.common.enum.UserRole
+import com.example.yourssuassignment.common.enums.UserRole
 import javax.persistence.*
 import javax.validation.constraints.NotNull
 import javax.validation.constraints.Size

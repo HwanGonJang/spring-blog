@@ -1,6 +1,6 @@
 package com.example.yourssuassignment.domain.user.controller.request
 
-import com.example.yourssuassignment.common.enum.UserRole
+import com.example.yourssuassignment.common.enums.UserRole
 import io.swagger.v3.oas.annotations.media.Schema
 import javax.validation.constraints.Email
 import javax.validation.constraints.Size

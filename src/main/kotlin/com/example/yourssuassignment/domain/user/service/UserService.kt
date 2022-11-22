@@ -1,7 +1,7 @@
 package com.example.yourssuassignment.domain.user.service
 
 import com.example.yourssuassignment.application.errorhandling.exception.UserNotFoundException
-import com.example.yourssuassignment.common.enum.UserRole
+import com.example.yourssuassignment.common.enums.UserRole
 import com.example.yourssuassignment.common.util.PasswordEncryptionUtil
 import com.example.yourssuassignment.domain.user.entity.User
 import com.example.yourssuassignment.domain.user.repository.UserRepository
@@ -14,6 +14,7 @@ class UserService(
     private val userRepository: UserRepository,
 ) {
     // email로 유저 가져오기 -> null 이면 Exception
+    @Transactional
     fun getByEmail(
         email: String,
     ): User = userRepository.findByEmail(
