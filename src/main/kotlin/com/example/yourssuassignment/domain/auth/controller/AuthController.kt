@@ -34,7 +34,7 @@ class AuthController(
             ),
         ],
 
-        )
+    )
     @PostMapping("/signUp")
     fun createUser(
         @RequestBody

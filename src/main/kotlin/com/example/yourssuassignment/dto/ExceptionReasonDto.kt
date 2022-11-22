@@ -6,4 +6,3 @@ data class ExceptionReasonDto(
     val statusCode: Int,
     val reason: String,
 )
-

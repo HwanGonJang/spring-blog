@@ -25,7 +25,7 @@ class ArticleService(
         user: User,
     ): Article = save(
         Article(
-            id = 0,     // auto_increment
+            id = 0, // auto_increment
             content = content,
             title = title,
             user = user,

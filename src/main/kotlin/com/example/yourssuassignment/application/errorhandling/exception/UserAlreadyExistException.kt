@@ -3,4 +3,4 @@ package kr.smartdoctor.api.autoreceipt.application.errorhandling.exception
 import kr.smartdoctor.api.autoreceipt.application.errorhandling.exception.base.ExceptionReason
 import kr.smartdoctor.api.autoreceipt.application.errorhandling.exception.base.ResponseStatusReasonException
 
-class UserAlreadyExistException: ResponseStatusReasonException(ExceptionReason.USER_ALREADY_EXIST)
+class UserAlreadyExistException : ResponseStatusReasonException(ExceptionReason.USER_ALREADY_EXIST)

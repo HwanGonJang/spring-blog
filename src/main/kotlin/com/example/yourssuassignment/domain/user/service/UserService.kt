@@ -36,7 +36,7 @@ class UserService(
         if (user != null) throw UserAlreadyExistException()
 
         val userToSave = User(
-            id = 0,     // auto_increment
+            id = 0, // auto_increment
             email = email,
             password = PasswordEncryptionUtil.encrypt(password),
             username = username,

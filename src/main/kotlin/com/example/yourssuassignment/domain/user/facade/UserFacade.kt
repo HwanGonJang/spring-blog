@@ -25,7 +25,7 @@ class UserFacade(
         password = password,
         username = username,
         role = role,
-    ).let {     // User -> UserDto
+    ).let { // User -> UserDto
         UserDto(
             email = it.email,
             username = it.username,
@@ -59,21 +59,20 @@ class UserFacade(
         updatedAtStart: LocalDateTime?,
         updatedAtEnd: LocalDateTime?,
     ): List<UserInfoDto> = userQueryService.getUsersByInquiry(
-            email = email,
-            username = username,
-            createdAtStart = createdAtStart,
-            createdAtEnd = createdAtEnd,
-            updatedAtStart = updatedAtStart,
-            updatedAtEnd = updatedAtEnd,
-        ).map {
-            UserInfoDto(
-                id = it.id,
-                email = it.email,
-                username = it.username,
-                role = it.userRole,
-                createdAt = it.createdDate,
-                updatedAt = it.modifiedDate,
-            )
-        }
-
+        email = email,
+        username = username,
+        createdAtStart = createdAtStart,
+        createdAtEnd = createdAtEnd,
+        updatedAtStart = updatedAtStart,
+        updatedAtEnd = updatedAtEnd,
+    ).map {
+        UserInfoDto(
+            id = it.id,
+            email = it.email,
+            username = it.username,
+            role = it.userRole,
+            createdAt = it.createdDate,
+            updatedAt = it.modifiedDate,
+        )
+    }
 }

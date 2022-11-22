@@ -39,6 +39,4 @@ class UserQueryService(
             .orderBy(user.id.desc())
             .fetch()
     }
-
-
 }

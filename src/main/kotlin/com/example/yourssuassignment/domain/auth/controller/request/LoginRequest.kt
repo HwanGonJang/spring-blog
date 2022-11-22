@@ -4,7 +4,7 @@ import io.swagger.v3.oas.annotations.media.Schema
 import javax.validation.constraints.Email
 import javax.validation.constraints.Size
 
-class LoginRequest (
+class LoginRequest(
     @Schema(
         description = """[필수] 고객의 이메일입니다. <br />""",
     )
