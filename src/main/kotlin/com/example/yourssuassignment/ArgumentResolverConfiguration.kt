@@ -17,7 +17,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer
 @Configuration
 class ArgumentResolverConfiguration(
     private val tokenVerifier: JWTVerifier
-): WebMvcConfigurer {
+) : WebMvcConfigurer {
     fun resolveEmail(): String {
         val httpServletRequest = (RequestContextHolder.getRequestAttributes() as ServletRequestAttributes).request
 
@@ -35,7 +35,7 @@ class ArgumentResolverConfiguration(
     }
 
     val emailArgumentResolver: HandlerMethodArgumentResolver =
-        object: HandlerMethodArgumentResolver {
+        object : HandlerMethodArgumentResolver {
             override fun supportsParameter(parameter: MethodParameter): Boolean =
                 parameter.getParameterAnnotation(Email::class.java) != null &&
                     parameter.parameterType == String::class.java

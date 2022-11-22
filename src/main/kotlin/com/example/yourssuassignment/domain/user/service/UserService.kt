@@ -1,7 +1,7 @@
 package com.example.yourssuassignment.domain.user.service
 
 import com.example.yourssuassignment.application.errorhandling.exception.UserNotFoundException
-import com.example.yourssuassignment.common.enum.UserRole
+import com.example.yourssuassignment.common.enums.UserRole
 import com.example.yourssuassignment.domain.user.entity.User
 import com.example.yourssuassignment.domain.user.repository.UserRepository
 import kr.smartdoctor.api.autoreceipt.application.errorhandling.exception.UserAlreadyExistException
@@ -15,6 +15,7 @@ class UserService(
     private val passwordEncoder: BCryptPasswordEncoder,
 ) {
     // email로 유저 가져오기 -> null 이면 Exception
+    @Transactional
     fun getByEmail(
         email: String,
     ): User = userRepository.findByEmail(
@@ -36,7 +37,7 @@ class UserService(
         if (user != null) throw UserAlreadyExistException()
 
         val userToSave = User(
-            id = 0,     // auto_increment
+            id = 0, // auto_increment
             email = email,
             password = passwordEncoder.encode(password),
             username = username,

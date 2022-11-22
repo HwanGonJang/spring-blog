@@ -10,5 +10,4 @@ class YourssuAssignmentApplicationTests {
     fun contextLoads() {
         //우왕
     }
-
 }

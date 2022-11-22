@@ -1,6 +1,6 @@
 package com.example.yourssuassignment.domain.auth.controller.response
 
-import com.example.yourssuassignment.common.enum.UserRole
+import com.example.yourssuassignment.common.enums.UserRole
 
 class LoginResponse(
     val email: String,

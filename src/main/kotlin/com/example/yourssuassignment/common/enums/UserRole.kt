@@ -1,4 +1,4 @@
-package com.example.yourssuassignment.common.enum
+package com.example.yourssuassignment.common.enums
 
 enum class UserRole(val role: String) {
     USER("USER"),

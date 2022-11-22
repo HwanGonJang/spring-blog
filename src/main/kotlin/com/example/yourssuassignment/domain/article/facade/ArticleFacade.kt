@@ -31,7 +31,7 @@ class ArticleFacade(
             title = title,
             content = content,
             user = user,
-        ).let {     // Article -> ArticleDto
+        ).let { // Article -> ArticleDto
             ArticleDto(
                 articleId = it.id,
                 email = it.user.email,
