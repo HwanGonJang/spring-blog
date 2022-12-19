@@ -1,0 +1,11 @@
+"게시글 스키마입니다."
+type Article {
+    "게시글 ID 입니다."
+    id: Int!
+    "게시글 내용입니다."
+    content: String!
+    "게시글 제목입니다."
+    title: String!
+    "해당 게시글의 댓글 스키마입니다."
+    comments: [Comment]!
+}

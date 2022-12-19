@@ -2,7 +2,7 @@ package com.example.yourssuassignment.domain.comment.facade
 
 import com.example.yourssuassignment.application.errorhandling.exception.DeleteUnauthorizedException
 import com.example.yourssuassignment.application.errorhandling.exception.UpdateUnauthorizedException
-import com.example.yourssuassignment.common.util.PasswordEncryptionUtil
+import com.example.yourssuassignment.domain.comment.entity.Comment
 import com.example.yourssuassignment.domain.comment.service.CommentService
 import com.example.yourssuassignment.domain.user.service.ArticleService
 import com.example.yourssuassignment.domain.user.service.UserService
@@ -16,6 +16,13 @@ class CommentFacade(
     private val articleService: ArticleService,
     private val commentService: CommentService,
 ) {
+    fun listByArticle(
+        articleId: Long,
+    ): List<Comment> {
+        val article = articleService.getById(articleId)
+
+        return commentService.listByArticle(article)
+    }
     // 댓글 작성하기
     fun createComment(
         articleId: Long,

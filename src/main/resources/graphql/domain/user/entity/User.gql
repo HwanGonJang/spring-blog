@@ -1,0 +1,13 @@
+"유저 스키마입니다."
+type User {
+    "유저 스키마의 ID 입니다."
+    id: Int!
+    "유저의 이메일입니다."
+    email: String!
+    "유저의 이름입니다."
+    username: String!
+    "유저의 권한입니다."
+    userRole: UserRole!
+    "해당 유저의 게시글 스키마입니다."
+    articles: [Article]!
+}

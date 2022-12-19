@@ -1,0 +1,4 @@
+extend type Query {
+    "Inquiry에 따른 유저를 반환합니다."
+    listCommentsByArticleId(articleId: Int!): [Comment]!
+}

@@ -61,7 +61,7 @@ class UserController(
         )
 
         return GetUserResponse(
-            userInfoDtos = userInfoDtos
+            users = userInfoDtos
         )
     }
 

@@ -2,7 +2,7 @@ package com.example.yourssuassignment.domain.article.facade
 
 import com.example.yourssuassignment.application.errorhandling.exception.DeleteUnauthorizedException
 import com.example.yourssuassignment.application.errorhandling.exception.UpdateUnauthorizedException
-import com.example.yourssuassignment.common.util.PasswordEncryptionUtil
+import com.example.yourssuassignment.domain.article.entity.Article
 import com.example.yourssuassignment.domain.user.service.ArticleService
 import com.example.yourssuassignment.domain.user.service.UserService
 import com.example.yourssuassignment.dto.ArticleDto
@@ -36,7 +36,7 @@ class ArticleFacade(
                 articleId = it.id,
                 email = it.user.email,
                 title = it.title,
-                content = it.title,
+                content = it.content,
             )
         }
     }
@@ -91,5 +91,13 @@ class ArticleFacade(
         if (article.user.id != user.id) throw DeleteUnauthorizedException()
 
         articleService.delete(article)
+    }
+
+    fun listByUserId(
+        userId: Long,
+    ): List<Article> {
+        val user = userService.getById(userId)
+
+        return articleService.listByUser(user)
     }
 }

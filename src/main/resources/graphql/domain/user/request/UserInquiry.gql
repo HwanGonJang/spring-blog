@@ -1,0 +1,9 @@
+input UserInquiry {
+    email: String,
+    username: String,
+    createdAtStart: LocalDate,
+    createdAtEnd: LocalDate,
+    updatedAtStart: LocalDate,
+    updatedAtEnd: LocalDate,
+}
+

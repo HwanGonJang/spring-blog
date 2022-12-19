@@ -25,7 +25,7 @@ class UserQueryService(
 
         val conditions =
             BooleanBuilder()
-                .and(user.userRole.eq(UserRole.USER))
+                // .and(user.userRole.eq(UserRole.USER))
                 .andIf(email != null) { user.email.eq(email) }
                 .andIf(username != null) { user.username.eq(username) }
                 .andIf(createdAtStart != null) { user.createdDate.after(createdAtStart) }

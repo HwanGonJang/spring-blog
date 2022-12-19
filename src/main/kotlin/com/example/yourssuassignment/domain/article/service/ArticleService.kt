@@ -16,6 +16,14 @@ class ArticleService(
         articleId: Long,
     ): Article = articleRepository.findById(articleId).orElseThrow { throw ArticleNotFoundException() }
 
+    fun listByUser(
+        user: User
+    ): List<Article> = articleRepository.findAllByUser(user)
+
+    fun listByUsers(
+        users: List<User>
+    ): List<Article> = articleRepository.findAllByUserIn(users)
+
     @Transactional
     fun createArticle(
         email: String,
