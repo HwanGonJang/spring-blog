@@ -24,10 +24,13 @@ class CommentService(
         articleId = articleId,
     ) ?: throw CommentNotFoundException()
 
-    // 게시글 ID로 조회
-    fun getById(
-        commentId: Long,
-    ) = commentRepository.findById(commentId).orElseThrow { throw CommentNotFoundException() }
+    fun listByArticle(
+        article: Article
+    ): List<Comment> = commentRepository.findAllByArticle(article)
+
+    fun listByArticles(
+        articles: List<Article>
+    ): List<Comment> = commentRepository.findAllByArticleIn(articles)
 
     fun createComment(
         user: User,

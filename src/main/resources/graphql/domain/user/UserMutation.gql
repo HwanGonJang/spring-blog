@@ -1,0 +1,4 @@
+extend type Mutation {
+    "유저를 생성합니다."
+    createUser(createUserRequest: CreateUserRequest): User!
+}

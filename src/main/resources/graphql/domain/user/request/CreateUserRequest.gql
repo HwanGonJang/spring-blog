@@ -1,0 +1,7 @@
+"유저 생성 request"
+input CreateUserRequest {
+    email: String!,
+    password: String!,
+    username: String!,
+    role: UserRole!,
+}

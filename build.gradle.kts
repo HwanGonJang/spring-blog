@@ -30,6 +30,7 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-validation")
+    implementation("org.springframework.boot:spring-boot-starter-graphql")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
@@ -45,6 +46,7 @@ dependencies {
     implementation("com.querydsl", "querydsl-jpa", "5.0.0")
     implementation("com.querydsl", "querydsl-kotlin", "5.0.0")
     kapt("com.querydsl:querydsl-apt:5.0.0:jpa")
+    implementation("com.tailrocks.graphql", "graphql-datetime-spring-boot-starter", "5.0.1")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.springframework.security:spring-security-test")

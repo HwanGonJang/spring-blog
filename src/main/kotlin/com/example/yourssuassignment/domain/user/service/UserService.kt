@@ -5,6 +5,7 @@ import com.example.yourssuassignment.common.enums.UserRole
 import com.example.yourssuassignment.domain.user.entity.User
 import com.example.yourssuassignment.domain.user.repository.UserRepository
 import kr.smartdoctor.api.autoreceipt.application.errorhandling.exception.UserAlreadyExistException
+import org.springframework.data.repository.findByIdOrNull
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import org.springframework.stereotype.Service
 import javax.transaction.Transactional
@@ -21,6 +22,10 @@ class UserService(
     ): User = userRepository.findByEmail(
         email = email,
     ) ?: throw UserNotFoundException()
+
+    fun getById(
+        id: Long
+    ): User = userRepository.findByIdOrNull(id) ?: throw UserNotFoundException()
 
     @Transactional
     fun createUser(

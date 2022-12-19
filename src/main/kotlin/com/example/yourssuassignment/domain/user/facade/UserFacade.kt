@@ -1,7 +1,7 @@
 package com.example.yourssuassignment.domain.user.facade
 
 import com.example.yourssuassignment.common.enums.UserRole
-import com.example.yourssuassignment.common.util.PasswordEncryptionUtil
+import com.example.yourssuassignment.domain.user.entity.User
 import com.example.yourssuassignment.domain.user.service.UserQueryService
 import com.example.yourssuassignment.domain.user.service.UserService
 import com.example.yourssuassignment.dto.UserDto
@@ -32,6 +32,18 @@ class UserFacade(
             role = it.userRole,
         )
     }
+
+    fun createUserForGql(
+        email: String,
+        password: String,
+        username: String,
+        role: UserRole,
+    ): User = userService.createUser(
+        email = email,
+        password = password,
+        username = username,
+        role = role,
+    )
 
     // 유저 삭제하기
     fun deleteUser(
@@ -68,4 +80,20 @@ class UserFacade(
             updatedAt = it.modifiedDate,
         )
     }
+
+    fun listByInquiry(
+        email: String?,
+        username: String?,
+        createdAtStart: LocalDateTime?,
+        createdAtEnd: LocalDateTime?,
+        updatedAtStart: LocalDateTime?,
+        updatedAtEnd: LocalDateTime?,
+    ): List<User> = userQueryService.getUsersByInquiry(
+        email = email,
+        username = username,
+        createdAtStart = createdAtStart,
+        createdAtEnd = createdAtEnd,
+        updatedAtStart = updatedAtStart,
+        updatedAtEnd = updatedAtEnd,
+    )
 }

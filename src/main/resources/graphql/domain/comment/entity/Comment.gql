@@ -1,0 +1,7 @@
+"특정 게시글의 댓글 스키마입니다."
+type Comment {
+    "댓글의 ID 입니다."
+    id: Int!
+    "댓글의 내용입니다."
+    content: String!
+}
