@@ -142,7 +142,20 @@ datasource:
 * **비밀번호 불일치 or 삭제할 권한이 없을 때(작성자가 아닐 때)**
   ![image](https://user-images.githubusercontent.com/33739448/194447326-e6512120-d959-41d6-bbca-89492c393b96.png)
   ![image](https://user-images.githubusercontent.com/33739448/194450162-42d8a553-f8f2-4c3a-a997-e8d42b6807a0.png)
-  
+
+### GraphQL 적용
+* **유저 스키마**
+    ![image](https://user-images.githubusercontent.com/33739448/208798505-0dac1df9-7d35-4ccf-985f-1a243dae5388.png)
+    * User -> Article -> Comment 1:N 관계로 매핑(BatchMapping)
+        ![image](https://user-images.githubusercontent.com/33739448/208798857-09ddeeef-7d02-4ce5-9fb6-0f811fd1cc59.png)
+* **Query**
+![image](https://user-images.githubusercontent.com/33739448/208798679-ea51a3af-3d2f-4aee-9afd-d294bde90538.png)
+    * 결과
+        ![image](https://user-images.githubusercontent.com/33739448/208799361-ad91493f-f086-437c-a820-e0b1421b60da.png)
+* **Mutation**
+![image](https://user-images.githubusercontent.com/33739448/208798688-1de2ba80-0d40-4832-8e68-ce05177abe7a.png)
+    * 결과
+        ![image](https://user-images.githubusercontent.com/33739448/208799524-c3ceca1a-0f66-4748-a5e0-e3ecf475e4a3.png)
 ### 테스트 코드
 비즈니스 로직이 없는 메소드 혹은 기본으로 제공되는 메소드에 대해서는 테스트 코드를 작성하지 않았습니다.
 #### 테스트 방법
