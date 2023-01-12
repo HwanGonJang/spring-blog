@@ -129,5 +129,4 @@ class TokenProvider(
         else
             throw TokenNotValidateException()
     }
-
 }

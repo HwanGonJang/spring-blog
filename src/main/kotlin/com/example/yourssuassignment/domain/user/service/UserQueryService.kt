@@ -1,7 +1,6 @@
 package com.example.yourssuassignment.domain.user.service
 
 import com.example.yourssuassignment.application.querydsl.QueryDslExtension.andIf
-import com.example.yourssuassignment.common.enums.UserRole
 import com.example.yourssuassignment.domain.user.entity.QUser
 import com.example.yourssuassignment.domain.user.entity.User
 import com.querydsl.core.BooleanBuilder

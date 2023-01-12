@@ -5,7 +5,6 @@ import com.example.yourssuassignment.domain.comment.entity.Comment
 import com.example.yourssuassignment.domain.comment.service.CommentService
 import com.example.yourssuassignment.domain.user.entity.User
 import com.example.yourssuassignment.domain.user.service.ArticleService
-import com.example.yourssuassignment.domain.user.service.UserService
 import org.springframework.graphql.data.method.annotation.BatchMapping
 import org.springframework.stereotype.Controller
 

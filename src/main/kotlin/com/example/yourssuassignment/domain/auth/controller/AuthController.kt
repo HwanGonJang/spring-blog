@@ -70,7 +70,6 @@ class AuthController(
         password = loginRequest.password,
     )
 
-
     @Operation(
         summary = "Access Token으로 재발급",
         responses = [

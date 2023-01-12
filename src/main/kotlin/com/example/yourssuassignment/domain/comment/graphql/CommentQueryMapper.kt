@@ -1,7 +1,5 @@
 package com.example.yourssuassignment.domain.comment.graphql
 
-import com.example.yourssuassignment.domain.article.entity.Article
-import com.example.yourssuassignment.domain.article.facade.ArticleFacade
 import com.example.yourssuassignment.domain.comment.entity.Comment
 import com.example.yourssuassignment.domain.comment.facade.CommentFacade
 import org.springframework.graphql.data.method.annotation.Argument

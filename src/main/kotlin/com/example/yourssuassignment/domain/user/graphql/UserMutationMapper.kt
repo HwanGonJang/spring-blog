@@ -16,9 +16,9 @@ class UserMutationMapper(
         @Argument
         createUserRequest: CreateUserRequest
     ): User = userFacade.createUserForGql(
-            email = createUserRequest.email,
-            password = createUserRequest.password,
-            username = createUserRequest.username,
-            role = createUserRequest.role,
+        email = createUserRequest.email,
+        password = createUserRequest.password,
+        username = createUserRequest.username,
+        role = createUserRequest.role,
     )
 }
