@@ -42,6 +42,8 @@ dependencies {
     implementation("mysql:mysql-connector-java")
     implementation("io.github.microutils", "kotlin-logging-jvm", "2.1.23")
     implementation("org.springframework.cloud:spring-cloud-starter-sleuth")
+    implementation("org.springframework.cloud:spring-cloud-starter-openfeign")
+    implementation("io.github.openfeign", "feign-gson", "11.0")
 
     implementation("com.querydsl", "querydsl-jpa", "5.0.0")
     implementation("com.querydsl", "querydsl-kotlin", "5.0.0")
